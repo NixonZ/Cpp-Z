@@ -10,10 +10,6 @@ int main()
     {
         if(x1%i==0&&x2%i==0&&i!=1)
             {hcf=i; flag=1;}
-        if(x1*i==x2*i)
-        {
-            lcm=min(x1,x2)*i;
-        }
     }
     if(flag==0)
         {
@@ -23,5 +19,4 @@ int main()
         {
             cout<<"HCF is "<<hcf;
         }
-    cout<<"LCM="<<lcm;    
 }
