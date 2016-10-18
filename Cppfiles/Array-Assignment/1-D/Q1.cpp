@@ -7,7 +7,6 @@ int main()
     char A[50];
     cout<<"Enter the string\n";
     cin.getline(A,50);
-    cout<<A[0];
     int vowel=0,cons=0,words=1,l=strlen(A);
     for(int i=0;i<l;i++)
     {
@@ -36,7 +35,7 @@ int main()
         C[i]=A[i];
     for(int i=0;i<l;i++)
     {
-        C[i]++;//try ahsbg
+        c[i]+=32;
     }
     cout.write(C,l);
     int flag=1;
