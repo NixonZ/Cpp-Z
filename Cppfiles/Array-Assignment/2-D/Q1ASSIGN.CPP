@@ -1,74 +1,80 @@
-#include<iostream.h>
+#include<iostream>
 #include<conio.h>
-void main()
+#include<windows.h>
+using namespace std;
+int main()
 {
- clrscr();
- int A[3][3];
- for(int i=0;i<3;i++)
+ int A[3][3],i,j;
+ for(i=0;i<3;i++)
  {
-  for(int j=0;j<3;j++)
+  for(j=0;j<3;j++)
   {
    cout<<"A["<<i<<"]["<<j<<"]:";
    cin>>A[i][j];
   }
  }
- for(int z=0;z<3;z++)
+ for(i=0;i<3;i++)
  {
-  for(int x=0;x<3;x++)
-  cout<<A[z][x]<<'\t';
+  for(j=0;j<3;j++)
+  cout<<A[i][j]<<'\t';
   cout<<endl;
  }
  int flag,sum=0,sume=0,sumo=0,suma=0,sumr[3]={0,0,0},sumc[3]={0,0,0},sumd1=0,sumd2=0,sumnod=0,l=0;
  cout<<"\Prime no. are\n";
- for(int a=0;a<3;a++)
+ for(i=0;i<3;i++)
  {
-  for(int k=0;k<3;k++)
+  for(int j=0;j<3;j++)
   {
    flag=0;
-   sum+=A[a][k];
+   sum+=A[i][j];
    if(l%2)
-    suma+=A[a][k];
+    suma+=A[i][j];
    l++;
-   (A[a][k]%2)?sumo+=A[a][k]:sume+=A[a][k];
-   for(int b=2;b<A[a][k];b++)
+   (A[i][j]%2)?sumo+=A[i][j]:sume+=A[i][j];
+   for(int k=2;k<A[i][j];k++)
    {
-    if(!(A[a][k]%b))
+    if(!(A[i][j]%k)||A[i][j]==0)
        flag=1;
    }
     if(flag==0)
-    cout<<A[a][k]<<'\t';
-    sumr[a]=0;
-    switch(a)
-   {
-    case 0:sumr[a]+=A[a][k];break;
-    case 1:sumr[a]+=A[a][k];break;
-    case 2:sumr[a]+=A[a][k];break;
-   }
-   sumc[k]=0;
-   switch(k)
-   {
-    case 0:sumc[k]+=A[a][k];break;
-    case 1:sumc[k]+=A[a][k];break;
-    case 2:sumc[k]+=A[a][k];break;
-   }
-   if(a==k)
-   sumd1+=A[a][k];
-   else if(a+k==2)
-   sumd2+=A[a][k];
-   else
-   sumnod+=A[a][k];
+    cout<<A[i][j]<<'\t';
+   if(i==j)
+   sumd1+=A[i][j];
+   if(i+j==2)
+   sumd2+=A[i][j];
+   if(i!=j&&i+j!=2)
+   sumnod+=A[i][j];
   }
  }
+ for(i=0;i<3;i++)
+ {
+     sumr[i]=0;
+     sumc[i]=0;
+     for(j=0;j<3;j++)
+    {
+        switch(i)
+        {
+        case 0:sumr[i]+=A[i][j];break;
+        case 1:sumr[i]+=A[i][j];break;
+        case 2:sumr[i]+=A[i][j];break;
+        }
+        switch(i)
+        {
+        case 0:sumc[i]+=A[j][i];break;
+        case 1:sumc[i]+=A[j][i];break;
+        case 2:sumc[i]+=A[j][i];break;
+        }
+    }
+ }
+ Sleep(1000);
  cout<<"\nSum of all elements="<<sum<<"\nSum of alternate element="<<suma
      <<"\nsum of even elements="<<sume<<"\nsum of odd element="<<sumo
      <<"\nSum of elements on diagonal (i=j) ="<<sumd1
      <<"\nSum of elements on diagonal (i+j=2) ="<<sumd2
      <<"\nSum of elements not on diagonal"<<sumnod;
- for(int c=0;c<3;c++)
+ for(i=0;i<3;i++)
  {
-  cout<<"\nSum of column"<<c+1<<'=' <<sumc[c];
-  cout<<"\nSum of row"<<c+1<<'=' <<sumr[c];
+  cout<<"\nSum of column"<<i+1<<'=' <<sumc[i];
+  cout<<"\nSum of row"<<i+1<<'=' <<sumr[i];
  }
- getch();
 }
-
