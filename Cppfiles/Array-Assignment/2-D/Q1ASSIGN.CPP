@@ -20,7 +20,7 @@ int main()
   cout<<endl;
  }
  int flag,sum=0,sume=0,sumo=0,suma=0,sumr[3]={0,0,0},sumc[3]={0,0,0},sumd1=0,sumd2=0,sumnod=0,l=0;
- cout<<"\Prime no. are\n";
+ cout<<"\nPrime no. are\n";
  for(i=0;i<3;i++)
  {
   for(int j=0;j<3;j++)
@@ -76,5 +76,57 @@ int main()
  {
   cout<<"\nSum of column"<<i+1<<'=' <<sumc[i];
   cout<<"\nSum of row"<<i+1<<'=' <<sumr[i];
+ }
+ Sleep(1000);
+ for(i=0;i<3;i++)
+ {
+     cout<<"\nRow["<<i+1<<"]\n";
+     for(j=0;j<3;j++)
+     {
+      cout<<A[i][j]<<'\t';
+     }
+ }
+ cout<<endl;
+  for(i=0;i<3;i++)
+ {
+     cout<<"Column["<<i+1<<"]\n";
+     for(j=0;j<3;j++)
+     {
+      cout<<A[j][i]<<endl;
+     }
+ }
+ Sleep(1000);
+ cout<<"Swapping Rows\n";
+ int temp;
+ for(i=0;i<3;i++)
+ {
+     for(j=0;j<3;j++)
+     {
+         temp=A[0][j];
+         A[0][j]=A[2][j];
+         A[2][j]=temp;
+     }
+ }
+ for(i=0;i<3;i++)
+ {
+  for(j=0;j<3;j++)
+  cout<<A[i][j]<<'\t';
+  cout<<endl;
+ }
+ cout<<"Swapping Columns\n";
+ for(i=0;i<3;i++)
+ {
+     for(j=0;j<3;j++)
+     {
+         temp=A[j][0];
+         A[j][0]=A[j][2];
+         A[j][2]=temp;
+     }
+ }
+ for(i=0;i<3;i++)
+ {
+  for(j=0;j<3;j++)
+  cout<<A[i][j]<<'\t';
+  cout<<endl;
  }
 }
