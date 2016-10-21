@@ -1,8 +1,7 @@
-#include<iostream.h>
-#include<conio.h>
-void main()
+#include<iostream>
+using namespace std;
+int main()
 {
- clrscr();
  int A[3][3],i,j;
  for(i=0;i<3;i++)
  {
@@ -38,5 +37,4 @@ void main()
   cout<<A[i][j]<<'\t';
   cout<<endl;
  }
- getch();
 }
