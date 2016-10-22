@@ -102,13 +102,21 @@ int main()
             }
         case 4:
             {
-                int C[3][3];
+                int C[3][3],sum=0,l=0,m=0;
                 for(i=0;i<3;i++)
                 {
-                    for(j=0;j<3;j++)
+                   for(j=0;j<3;j++)
                     {
-                        C[i][j]=A[i][j]*B[i][j];
+                       sum=0;
+                       for(int k=0;k<3;k++)
+                       {
+                           sum+=A[l][k]*B[k][m];
+                       }
+                       C[i][j]=sum;
+                       m++;
                     }
+                   m=0;
+                   l++;
                 }
                 for(i=0;i<3;i++)
                 {
