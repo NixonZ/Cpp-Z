@@ -4,35 +4,45 @@
 using namespace std;
 int main()
 {
-    int A[3][3],B[3][3],i,j;
-    for(i=0;i<3;i++)
-    {
-        for(j=0;j<3;j++)
+    int A[10][10],B[10][10],i,j,m,n,p,q;
+    a:
+    cout<<"Enter the Rows*Column of the first array";
+    cin>>m>>n;
+    cout<<"Enter the Rows*column of the second array";
+    cin>>p>>q;
+    if(m>10||n>10||p>10||q>10)
         {
-            cout<<"A["<<i<<"]["<<j<<"]:";
+            cout<<"Size of the array is very large";
+            goto a;
+        }
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            cout<<"A["<<i+1<<"]["<<j+1<<"]:";
             cin>>A[i][j];
         }
     }
-    for(i=0;i<3;i++)
+    for(i=0;i<p;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<q;j++)
         {
-            cout<<"B["<<i<<"]["<<j<<"]:";
+            cout<<"B["<<i+1<<"]["<<j+1<<"]:";
             cin>>B[i][j];
         }
     }
-    for(i=0;i<3;i++)
+    for(i=0;i<m;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<n;j++)
         {
             cout<<A[i][j]<<'\t';
         }
         cout<<endl;
     }
     cout<<endl;
-    for(i=0;i<3;i++)
+    for(i=0;i<p;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<q;j++)
         {
             cout<<B[i][j]<<'\t';
         }
@@ -43,14 +53,22 @@ int main()
     {
         cout<<"\nMenu\n1. Equality\n2. Addition\n3. Subtraction\n4. Multiplication\n5. Exit \n";
         cin>>x;
+        if(m!=p&&n!=q)
+        {
+            if(x!=4&&x!=5)
+            {
+                cout<<"Matrix should have equal no. of rows and column\n";
+                x=6;
+            }
+        }
         switch(x)
         {
         case 1:
             {
                 int flag=0;
-                for(i=0;i<3;i++)
+                for(i=0;i<m;i++)
                 {
-                    for(j=0;j<3;j++)
+                    for(j=0;j<n;j++)
                     {
                         if(A[i][j]!=B[i][j])
                         {flag=1;
@@ -62,17 +80,17 @@ int main()
             }
         case 2:
             {
-                int C[3][3];
-                for(i=0;i<3;i++)
+                int C[20][20];
+                for(i=0;i<m;i++)
                 {
-                    for(j=0;j<3;j++)
+                    for(j=0;j<n;j++)
                     {
                         C[i][j]=A[i][j]+B[i][j];
                     }
                 }
-                for(i=0;i<3;i++)
+                for(i=0;i<m;i++)
                 {
-                    for(j=0;j<3;j++)
+                    for(j=0;j<n;j++)
                     {
                         cout<<C[i][j]<<'\t';
                     }
@@ -82,17 +100,17 @@ int main()
             }
         case 3:
             {
-                int C[3][3];
-                for(i=0;i<3;i++)
+                int C[20][20];
+                for(i=0;i<m;i++)
                 {
-                    for(j=0;j<3;j++)
+                    for(j=0;j<n;j++)
                     {
                         C[i][j]=A[i][j]-B[i][j];
                     }
                 }
-                for(i=0;i<3;i++)
+                for(i=0;i<m;i++)
                 {
-                    for(j=0;j<3;j++)
+                    for(j=0;j<n;j++)
                     {
                         cout<<C[i][j]<<'\t';
                     }
@@ -102,25 +120,30 @@ int main()
             }
         case 4:
             {
-                int C[3][3],sum=0,l=0,m=0;
-                for(i=0;i<3;i++)
+                int C[20][20],sum=0,l=0,z=0;
+                if(n!=p)
                 {
-                   for(j=0;j<3;j++)
+                    cout<<"Multiplication not possible\n";
+                    x=6;
+                }
+                for(i=0;i<m;i++)
+                {
+                   for(j=0;j<q;j++)
                     {
                        sum=0;
-                       for(int k=0;k<3;k++)
+                       for(int k=0;k<n;k++)
                        {
-                           sum+=A[l][k]*B[k][m];
+                           sum+=A[l][k]*B[k][z];
                        }
                        C[i][j]=sum;
-                       m++;
+                       z++;
                     }
-                   m=0;
+                   z=0;
                    l++;
                 }
-                for(i=0;i<3;i++)
+                for(i=0;i<m;i++)
                 {
-                    for(j=0;j<3;j++)
+                    for(j=0;j<q;j++)
                     {
                         cout<<C[i][j]<<'\t';
                     }
