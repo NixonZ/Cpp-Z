@@ -133,13 +133,10 @@ int main()
                        sum=0;
                        for(int k=0;k<n;k++)
                        {
-                           sum+=A[l][k]*B[k][z];
+                           sum+=A[i][k]*B[k][j];
                        }
                        C[i][j]=sum;
-                       z++;
                     }
-                   z=0;
-                   l++;
                 }
                 for(i=0;i<m;i++)
                 {
