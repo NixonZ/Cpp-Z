@@ -10,10 +10,11 @@ int fact(int a)
 int main()
 {
   void fibonacci(int a);
-  int odd(int a,int b=0);
-  void series1(int a,const int b);
+  void odd(int a);
+  void series1(int a,float b);
   void series2(int c);
-  int n,x,y;
+  int n,x;
+  float y;
   do {
     cout<<"1. Fibonacci series\n2. Series of odd numbers\n3. x + x/2! + x/3! + x/4! +-------\n"
         <<"4. (1) +(1+2) + ( 1+2+3) +---------------\n5-Exit\n";
@@ -47,7 +48,7 @@ void fibonacci(int a)
   }
   cout<<"\nSum="<<sum<<endl;
 }
-int odd(int a,const int b=0)
+void odd(int a)
 {
   int sum=0,j=1;
   for(int i=1;i<=a;i++)
@@ -58,12 +59,9 @@ int odd(int a,const int b=0)
     if(i!=a)
         cout<<'+';
   }
-  if(b==0)
   cout<<"\nsum="<<sum<<endl;
-  else
-    return sum;
 }
-void series1(int a,int b)
+void series1(int a,float b)
 {
   float sum=0;
   for(int i=1;i<=a;i++)
@@ -78,15 +76,19 @@ void series1(int a,int b)
 void series2(int c)
 {
   int sum=0,x;
-  int odd(int a,const int b=0);
   for(int i=1;i<=c;i++)
   {
     cout<<'(';
-    x=odd(i,1);
+    for(int j=1;j<=i;j++)
+    {
+        cout<<j;
+        if(j!=i)
+            cout<<'+';
+        sum+=j;
+    }
     cout<<')';
     if(i!=c)
       cout<<'+';
-    sum+=x;
   }
   cout<<"\nthe sum="<<sum<<endl;
 }
