@@ -32,6 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Deletion.cpp" />
+		<Unit filename="Searchin/bsearch.cpp" />
+		<Unit filename="Searchin/lsearch.cpp" />
+		<Unit filename="Sorting/bsort.cpp" />
+		<Unit filename="Sorting/isort.cpp" />
+		<Unit filename="Sorting/msort.cpp" />
+		<Unit filename="Sorting/ssort.cpp" />
+		<Unit filename="insertion.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
 		<Extensions>

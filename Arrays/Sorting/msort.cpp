@@ -11,6 +11,8 @@ void msort(int A[], int m)
         cin>>B[i];
         cout<<endl;
     }
+    isort(A,m);
+    bsort(B,n);
     int i=0,j=0,k=0;
     int C[m+n];
     while((i<m)&&(j<n))
