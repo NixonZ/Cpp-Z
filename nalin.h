@@ -1,6 +1,6 @@
 #ifndef NALIN_H_INCLUDED
 #define NALIN_H_INCLUDED
-void gotoxy( int column, int line )
+/*void gotoxy( int column, int line )
   {
   COORD coord;
   coord.X = column;
@@ -33,7 +33,7 @@ int wherey()
          ))
     return -1;
   return result.Y;
-  }
+  }*/
 int fact(int a)
 {
     if(a==1)
@@ -41,7 +41,8 @@ int fact(int a)
     else
         return a*fact(a-1);
 }
-class stack
+//Array implementation
+/*class stack
 {
 	int A[100];
 	int top;
@@ -131,5 +132,5 @@ public:
 			front++;
 		}
 	}
-};
+};*/
 #endif // NALIN_H_INCLUDED
