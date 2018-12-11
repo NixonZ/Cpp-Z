@@ -133,4 +133,71 @@ public:
 		}
 	}
 };*/
+class CircularQueue
+{
+	int front;
+	int rear;
+	int A[100];
+	int size;
+public:
+	CircularQueue(int a)
+	{
+		front=rear=-1;
+		size=a;
+	}
+	void insert(int x)
+	{
+		if(front==-1)
+		{
+			front=rear=0;
+			A[rear]=x;
+			return;
+		}
+		else if((rear+1)%size==front)
+		{
+			cout<<"Queue overflow\n";
+			return;
+		}
+		else
+		{
+			rear++;
+			rear%=size;
+			A[rear]=x;
+		}
+	}
+	void del()
+	{
+		if(front==-1)
+		{
+			cout<<"Queue underflow\n";
+			return;
+		}
+		if(rear==front)
+			rear=front=-1;
+		else
+		{
+			front++;
+			front%=size;
+		}
+	}
+	void display()
+	{
+		if(front<=rear)
+		{
+			cout<<'{';
+			for(int i=front;i<=rear;i++)
+				cout<<A[i]<<',';
+			cout<<"\b}";
+		}
+		else if(front>rear)
+		{
+			cout<<'{';
+			for(int i=front;i<size;i++)
+				cout<<A[i]<<',';
+			for(int i=0;i<=rear;i++)
+				cout<<A[i]<<',';
+			cout<<"\b}";
+		}
+	}
+};
 #endif // NALIN_H_INCLUDED

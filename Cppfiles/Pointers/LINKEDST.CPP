@@ -1,5 +1,5 @@
-#include<iostream.h>
-#include<conio.h>
+#include<iostream>
+using namespace std;
 struct stack
 {
  int no;
@@ -9,7 +9,7 @@ stack *new_node(int value)
 {
  stack *p=new stack;
  p->no=value;
- p->next=NULL;
+ p->next=nullptr;
  return p;
 }
 void push(stack *p)
@@ -20,7 +20,7 @@ void push(stack *p)
 }
 void pop()
 {
- if(top==NULL)
+ if(top==nullptr)
   cout<<"Stack underflow\n";
  else
  {
@@ -31,7 +31,6 @@ void pop()
 }
 void main()
 {
- clrscr();
  cout<<"Enter values (0 to exit)\n";
  int x;
  do
@@ -49,6 +48,5 @@ void main()
   p=p->next;
  }
  cout<<"\b}";
- getch();
 }
 
